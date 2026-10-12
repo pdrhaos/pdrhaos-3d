@@ -4,340 +4,453 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#0c0c14">
-<title>pdrhaos 3D | Ideias que ganham forma</title>
+<meta name="theme-color" content="#ffffff">
+<title>pdrhaos 3D | Loja de impressão 3D</title>
 
 <style>
 :root {
-  --bg: #0c0c14;
-  --panel: #161623;
-  --line: #302d45;
-  --purple: #8b5cf6;
-  --blue: #38bdf8;
-  --text: #f5f3ff;
-  --muted: #aaa9bd;
+  --purple: #7545e8;
+  --purple-dark: #5d32c8;
+  --text: #24232b;
+  --muted: #777580;
+  --line: #e9e8ee;
+  --bg: #f6f6f9;
+  --green: #168548;
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  background: var(--bg);
-  color: var(--text);
   font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.5;
+  color: var(--text);
+  background: var(--bg);
 }
 
-button, select, input { font: inherit; }
-button, a { cursor: pointer; }
-a { color: inherit; text-decoration: none; }
+button, input, select { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button { cursor: pointer; }
+a { text-decoration: none; color: inherit; }
 
-header {
+.topbar {
+  background: white;
+  border-bottom: 1px solid var(--line);
   position: sticky;
   top: 0;
-  z-index: 5;
-  background: #0c0c14ed;
-  backdrop-filter: blur(15px);
-  border-bottom: 1px solid var(--line);
+  z-index: 10;
 }
 
-.nav {
-  max-width: 1100px;
+.top-inner {
+  max-width: 1200px;
   margin: auto;
-  padding: 16px 22px;
+  padding: 15px 22px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 15px;
+  gap: 25px;
 }
 
 .logo {
-  font-size: 23px;
+  border: 0;
+  background: none;
+  color: #262333;
   font-weight: 900;
-  letter-spacing: -1px;
+  font-size: 24px;
+  letter-spacing: -1.2px;
+  white-space: nowrap;
 }
 
 .logo span { color: var(--purple); }
 
-nav {
+.search {
+  flex: 1;
   display: flex;
-  gap: 20px;
-  color: var(--muted);
-  font-size: 14px;
+  border: 1px solid #dedce6;
+  border-radius: 9px;
+  overflow: hidden;
+  background: white;
 }
 
-.btn {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
+.search input {
   border: 0;
-  border-radius: 12px;
-  padding: 12px 17px;
-  background: linear-gradient(110deg, var(--purple), #555fe9);
-  color: white;
-  font-weight: bold;
+  outline: 0;
+  padding: 12px 14px;
+  width: 100%;
+  min-width: 0;
+  color: var(--text);
+  background: white;
 }
 
-.btn.secondary {
-  background: #242337;
-  border: 1px solid var(--line);
+.search button {
+  border: 0;
+  border-left: 1px solid var(--line);
+  background: #faf9fc;
+  padding: 0 16px;
 }
 
-.btn.full { width: 100%; }
+.cart-link {
+  border: 0;
+  background: #f1ebff;
+  color: var(--purple-dark);
+  border-radius: 10px;
+  padding: 11px 14px;
+  font-weight: 700;
+  white-space: nowrap;
+}
 
 main {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: auto;
-  padding: 0 22px;
+  padding: 24px 22px 60px;
 }
 
-.hero {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 35px;
-  align-items: center;
-  padding: 75px 0 60px;
+.welcome {
+  background: linear-gradient(110deg, #eee7ff, #f7f3ff 60%, #e8f5ff);
+  border: 1px solid #e7dcff;
+  border-radius: 16px;
+  padding: 28px 30px;
+  margin-bottom: 27px;
 }
 
-.tag {
-  display: inline-block;
-  padding: 7px 12px;
-  border-radius: 30px;
-  background: #261b40;
-  color: #c4b5fd;
-  font-size: 12px;
-  font-weight: bold;
+.welcome small {
+  color: var(--purple-dark);
+  font-weight: 800;
+  letter-spacing: 1px;
 }
 
-h1 {
-  font-size: clamp(42px, 6vw, 66px);
-  line-height: 1.05;
-  letter-spacing: -2px;
-  margin: 20px 0;
+.welcome h1 {
+  margin: 9px 0;
+  font-size: clamp(25px, 4vw, 36px);
+  letter-spacing: -1px;
 }
 
-h1 span {
-  background: linear-gradient(90deg, #a78bfa, #38bdf8);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+.welcome p {
+  color: #696576;
+  margin: 0;
+  line-height: 1.6;
 }
 
-p { color: var(--muted); }
-
-.hero p {
-  font-size: 17px;
-  max-width: 440px;
-}
-
-.actions {
+.section-heading {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 25px;
+  margin: 28px 0 17px;
 }
 
-.art {
-  min-height: 330px;
-  border: 1px solid #393252;
-  border-radius: 26px;
-  background: radial-gradient(ellipse at center, #352452, #151522 72%);
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-}
-
-.cube {
-  display: grid;
-  grid-template-columns: repeat(2, 100px);
-  gap: 13px;
-  transform: rotate(-7deg);
-}
-
-.cube div {
-  height: 100px;
-  border-radius: 20px;
-  display: grid;
-  place-items: center;
-  font-size: 48px;
-  background: linear-gradient(145deg, #44365f, #1b1a2b);
-  border: 1px solid #696080;
-  box-shadow: 0 15px 30px #0005;
-}
-
-.cube div:nth-child(2) { transform: translateY(15px); }
-.cube div:nth-child(3) { transform: translateY(-8px); }
-
-section { scroll-margin-top: 85px; }
-
-.products-section { padding: 30px 0 65px; }
-
-h2 {
-  font-size: 30px;
-  letter-spacing: -.6px;
+.section-heading h2 {
+  font-size: 22px;
   margin: 0;
 }
 
-.subtitle { margin: 5px 0 25px; }
+.section-heading span {
+  color: var(--muted);
+  font-size: 13px;
+}
 
-.products {
+.catalog {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px;
-  align-items: start;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
 }
 
-/* Cartão do produto em fundo branco */
-.card {
-  background: #ffffff;
-  color: #171725;
-  border: 1px solid #e5e7eb;
-  border-radius: 20px;
+.product-card {
+  background: white;
+  border: 1px solid #e8e7ed;
+  border-radius: 12px;
   overflow: hidden;
+  cursor: pointer;
+  transition: box-shadow .2s, transform .2s;
 }
 
-/* Carrinho continua com o tema escuro */
-.cartbox {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  overflow: hidden;
+.product-card:hover {
+  box-shadow: 0 7px 24px #30204d12;
+  transform: translateY(-2px);
 }
 
-/* Área da foto */
-.product-art {
-  height: 230px;
-  display: grid;
-  place-items: center;
-  background: #ffffff;
-  padding: 15px;
-  overflow: hidden;
+.thumb {
+  width: 100%;
+  height: 195px;
+  padding: 13px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #f1f0f4;
 }
 
-.product-art img {
+.thumb img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  display: block;
 }
 
-.card-body { padding: 20px; }
+.product-info { padding: 15px; }
 
-.card h3 {
-  font-size: 21px;
-  margin: 0 0 6px;
-}
-
-.card-body p {
+.product-name {
   font-size: 14px;
-  margin: 0 0 12px;
-  color: #626274;
+  line-height: 1.5;
+  min-height: 42px;
+  margin: 0 0 9px;
+  font-weight: 500;
 }
 
-.price {
+.product-price {
   font-size: 25px;
-  font-weight: 850;
-  margin: 12px 0;
-  color: #171725;
+  font-weight: 500;
+  letter-spacing: -.5px;
+  margin: 5px 0;
 }
 
-.price small {
+.product-price small {
+  font-size: 13px;
+}
+
+.shipping {
   font-size: 12px;
-  color: #77778a;
-  font-weight: normal;
+  color: var(--green);
+  margin-top: 7px;
 }
 
-label {
+.card-link {
+  display: block;
+  width: 100%;
+  margin-top: 14px;
+  border: 1px solid #e2d8ff;
+  background: #f8f5ff;
+  color: var(--purple-dark);
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.card-link:hover { background: #eee6ff; }
+
+.empty-results {
+  background: white;
+  padding: 35px;
+  text-align: center;
+  border-radius: 12px;
+  color: var(--muted);
+  display: none;
+}
+
+/* PÁGINA DO PRODUTO */
+
+.view { display: none; }
+.view.active { display: block; }
+
+.back {
+  border: 0;
+  padding: 8px 0;
+  background: transparent;
+  color: var(--purple-dark);
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.detail {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.detail-photo {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  min-height: 440px;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.detail-photo img {
+  width: 100%;
+  height: 390px;
+  object-fit: contain;
+}
+
+.detail-panel {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 25px;
+}
+
+.breadcrumb {
+  color: var(--muted);
+  font-size: 12px;
+  margin-bottom: 13px;
+}
+
+.available {
+  color: var(--green);
+  font-size: 13px;
+  margin: 0 0 9px;
+}
+
+.detail h1 {
+  font-size: 26px;
+  line-height: 1.3;
+  letter-spacing: -.6px;
+  margin: 0 0 14px;
+}
+
+.detail-price {
+  font-size: 36px;
+  letter-spacing: -1px;
+  margin: 10px 0 4px;
+}
+
+.unit-label {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.divider {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 20px 0;
+}
+
+.field { margin-bottom: 17px; }
+
+.field label {
   display: block;
   font-size: 13px;
-  color: #555568;
-  margin: 14px 0 6px;
+  font-weight: 700;
+  margin-bottom: 7px;
 }
 
-select, input {
+.field select,
+.field input {
   width: 100%;
+  border: 1px solid #dcd9e5;
+  background: white;
+  color: var(--text);
   padding: 12px;
-  border: 1px solid #d5d5e0;
-  background: #ffffff;
-  color: #171725;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
-select:focus, input:focus {
-  outline: 1px solid var(--purple);
+.description {
+  color: #686673;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.description h3 {
+  color: var(--text);
+  font-size: 17px;
 }
 
 .hint {
-  font-size: 12px !important;
-  color: #7650c8 !important;
-  margin-top: 10px !important;
+  color: var(--purple-dark);
+  font-size: 12px;
+  line-height: 1.6;
+  margin-top: 8px;
 }
 
-.cart-section { padding: 15px 0 60px; }
+.primary {
+  width: 100%;
+  border: 0;
+  border-radius: 9px;
+  background: var(--purple);
+  color: white;
+  font-weight: 700;
+  padding: 15px;
+  transition: background .2s;
+}
 
-.cartbox { padding: 20px; }
+.primary:hover { background: var(--purple-dark); }
+
+.secondary {
+  width: 100%;
+  border: 1px solid #ded5f8;
+  border-radius: 9px;
+  background: #f8f5ff;
+  color: var(--purple-dark);
+  font-weight: 700;
+  padding: 13px;
+  margin-top: 10px;
+}
+
+.benefits {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.benefit {
+  background: white;
+  border: 1px solid var(--line);
+  padding: 16px;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.benefit strong { display: block; margin-bottom: 4px; }
+
+/* CARRINHO */
+
+.cart-panel {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.cart-panel h1 { margin-top: 0; }
 
 .cart-item {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 14px 0;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 15px;
+  padding: 18px 0;
   border-bottom: 1px solid var(--line);
 }
 
-.cart-item:last-child { border-bottom: 0; }
-
 .cart-item p {
+  color: var(--muted);
   font-size: 13px;
-  margin: 4px 0;
+  line-height: 1.6;
 }
 
 .remove {
   border: 0;
   background: none;
-  color: #fda4af;
+  color: #c03954;
+  font-size: 13px;
 }
 
-.empty {
-  text-align: center;
-  color: var(--muted);
-  padding: 22px 0;
-}
-
-.total {
-  font-size: 27px;
-  font-weight: 850;
-  margin: 12px 0;
-}
-
-.notice { font-size: 12px; }
-
-.banner {
-  padding: 27px;
-  border: 1px solid #42315e;
-  border-radius: 20px;
-  background: linear-gradient(110deg, #24183b, #142432);
-  margin-bottom: 50px;
-}
-
-footer {
-  border-top: 1px solid var(--line);
-  padding: 25px 22px;
-}
-
-.footer-inner {
-  max-width: 1100px;
-  margin: auto;
+.total-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 15px;
-  flex-wrap: wrap;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 20px 0;
 }
 
-footer p { font-size: 12px; }
+.cart-empty {
+  text-align: center;
+  color: var(--muted);
+  padding: 30px 0;
+}
+
+footer {
+  background: white;
+  border-top: 1px solid var(--line);
+  padding: 27px 22px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+}
 
 .toast {
   display: none;
@@ -345,190 +458,276 @@ footer p { font-size: 12px; }
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 10;
-  background: #29233d;
-  border: 1px solid #65528e;
+  z-index: 20;
   padding: 13px 18px;
-  border-radius: 12px;
+  border-radius: 10px;
+  color: white;
+  background: #282433;
   max-width: 90%;
   text-align: center;
+  box-shadow: 0 4px 20px #0002;
 }
 
-@media (max-width: 650px) {
-  .hero {
-    grid-template-columns: 1fr;
-    padding: 48px 0;
-  }
+@media (max-width: 900px) {
+  .catalog { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .detail { grid-template-columns: 1fr 1fr; gap: 17px; }
+  .detail-photo { min-height: 350px; padding: 15px; }
+  .detail-photo img { height: 320px; }
+  .detail-panel { padding: 18px; }
+}
 
-  .art { min-height: 250px; }
-
-  .cube { grid-template-columns: repeat(2, 85px); }
-
-  .cube div {
-    height: 85px;
-    font-size: 42px;
-  }
-
-  .products { grid-template-columns: 1fr; }
-
-  .product-art { height: 200px; }
-
-  nav { gap: 12px; }
-
-  nav a:nth-child(2) { display: none; }
-
-  .card-body { padding: 17px; }
+@media (max-width: 620px) {
+  .top-inner { padding: 12px; gap: 10px; flex-wrap: wrap; }
+  .logo { font-size: 21px; }
+  .search { order: 3; flex-basis: 100%; }
+  .cart-link { margin-left: auto; }
+  main { padding: 16px 12px 40px; }
+  .welcome { padding: 22px 18px; }
+  .catalog { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .thumb { height: 155px; padding: 9px; }
+  .product-info { padding: 11px; }
+  .product-name { font-size: 13px; min-height: 40px; }
+  .product-price { font-size: 21px; }
+  .card-link { padding: 9px 5px; font-size: 12px; }
+  .section-heading h2 { font-size: 19px; }
+  .detail { grid-template-columns: 1fr; gap: 14px; }
+  .detail-photo { min-height: 290px; }
+  .detail-photo img { height: 270px; }
+  .detail-panel { padding: 19px; }
+  .detail h1 { font-size: 23px; }
+  .detail-price { font-size: 32px; }
+  .benefits { grid-template-columns: 1fr 1fr; }
+  .cart-panel { padding: 17px; }
 }
 </style>
 </head>
 
 <body>
-<header>
-  <div class="nav">
-    <a href="#" class="logo">pdrhaos <span>3D.</span></a>
-    <nav>
-      <a href="#inicio">Início</a>
-      <a href="#produtos">Produtos</a>
-      <a href="#sobre">Sobre</a>
-    </nav>
-    <a class="btn" href="#carrinho">🛒 <span id="count">0</span></a>
+
+<header class="topbar">
+  <div class="top-inner">
+    <button class="logo" onclick="showHome()">pdrhaos <span>3D.</span></button>
+
+    <form class="search" id="searchForm">
+      <input
+        type="search"
+        id="searchInput"
+        placeholder="Buscar produtos na pdrhaos 3D..."
+        aria-label="Buscar produtos"
+      >
+      <button type="submit" aria-label="Buscar">⌕</button>
+    </form>
+
+    <button class="cart-link" onclick="showCart()">
+      🛒 Carrinho (<span id="count">0</span>)
+    </button>
   </div>
 </header>
 
 <main>
-<section class="hero" id="inicio">
-  <div>
-    <span class="tag">✦ IMPRESSÃO 3D CRIATIVA</span>
-    <h1>Ideias que<br>ganham <span>forma.</span></h1>
-    <p>Brinquedos criativos e peças únicas impressas em 3D. Escolha suas cores, personalize e faça seu pedido!</p>
-    <div class="actions">
-      <a class="btn" href="#produtos">Explorar produto ↗</a>
-      <a class="btn secondary" href="#sobre">Conheça a loja</a>
+
+  <!-- VITRINE DA LOJA -->
+  <section class="view active" id="homeView">
+
+    <div class="welcome">
+      <small>IMPRESSÃO 3D CRIATIVA</small>
+      <h1>Ideias que ganham forma.</h1>
+      <p>
+        Brinquedos criativos, puzzles e peças impressas em 3D.
+        Escolha seu próximo favorito!
+      </p>
     </div>
-  </div>
 
-  <div class="art">
-    <div class="cube">
-      <div>🌀</div>
-      <div>🧩</div>
-      <div>🔷</div>
-      <div>✨</div>
+    <div class="section-heading">
+      <h2>Produtos em destaque</h2>
+      <span id="resultCount">1 produto</span>
     </div>
-  </div>
-</section>
 
-<section class="products-section" id="produtos">
-  <h2>Nosso produto</h2>
-  <p class="subtitle">Escolha o tamanho e a cor do seu Infinity Cube.</p>
+    <div class="catalog" id="catalog">
 
-  <div class="products">
-    <article class="card">
+      <article class="product-card" onclick="showProduct()">
+        <div class="thumb">
+          <img
+            src="images/imagem_2026-10-12_143104023.png"
+            alt="Infinity Cube Fidget Toy"
+          >
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Infinity Cube Fidget Toy</h3>
+          <div class="product-price">R$ 20,00</div>
+          <div class="shipping">✓ Escolha sua cor</div>
+          <button class="card-link" type="button" onclick="event.stopPropagation();showProduct()">
+            Ver produto
+          </button>
+        </div>
+      </article>
 
-      <div class="product-art">
-        <img
-          src="images/imagem_2026-10-12_143104023.png"
-          alt="Infinity Cube Fidget Toy impresso em 3D"
-          onerror="this.onerror=null;this.alt='Foto não encontrada. Confira o nome do arquivo na pasta images do GitHub.';this.style.display='none';this.parentElement.insertAdjacentHTML('beforeend','<p style=&quot;color:#555;padding:10px;text-align:center&quot;>Não foi possível carregar a foto. Confira o nome do arquivo na pasta images.</p>');"
-        >
+    </div>
+
+    <div class="empty-results" id="emptyResults">
+      <h3>Nenhum produto encontrado</h3>
+      <p>Tente buscar por outro nome.</p>
+    </div>
+
+    <div class="benefits">
+      <div class="benefit">
+        <strong>✦ Personalização</strong>
+        Escolha entre várias cores e tamanhos.
+      </div>
+      <div class="benefit">
+        <strong>✉ Pedido fácil</strong>
+        Confirme seu pedido diretamente pelo WhatsApp.
+      </div>
+    </div>
+  </section>
+
+  <!-- PÁGINA INDIVIDUAL DO PRODUTO -->
+  <section class="view" id="productView">
+    <button class="back" onclick="showHome()">← Voltar aos produtos</button>
+
+    <div class="detail">
+      <div>
+        <div class="detail-photo">
+          <img
+            src="images/imagem_2026-10-12_143104023.png"
+            alt="Infinity Cube Fidget Toy impresso em 3D"
+          >
+        </div>
+
+        <div class="description">
+          <h3>Descrição do produto</h3>
+          <p>
+            O Infinity Cube Fidget Toy é um brinquedo articulado que pode
+            ser movimentado continuamente entre diferentes posições.
+            Uma opção divertida para quem gosta de objetos interativos.
+          </p>
+          <p>
+            Escolha o tamanho e a cor que combinam com você.
+            Cada unidade é produzida por impressão 3D.
+          </p>
+          <p>
+            A aparência e o acabamento podem apresentar pequenas variações
+            próprias do processo de impressão 3D.
+          </p>
+        </div>
       </div>
 
-      <div class="card-body">
-        <h3>Infinity Cube Fidget Toy</h3>
-        <p>Um brinquedo articulado para movimentar, brincar e relaxar.</p>
+      <div class="detail-panel">
+        <div class="breadcrumb">Início › Produtos › Infinity Cube</div>
+        <p class="available">● Personalizado sob consulta</p>
 
-        <div class="price" id="price">R$ 20,00 <small>/ unidade</small></div>
+        <h1>Infinity Cube Fidget Toy</h1>
 
-        <label for="size">Tamanho</label>
-        <select id="size">
-          <option value="Pequeno">Pequeno — R$ 20,00</option>
-          <option value="Médio">Médio — R$ 25,00</option>
-          <option value="Grande">Grande — R$ 30,00</option>
-        </select>
+        <div class="detail-price" id="detailPrice">R$ 20,00</div>
+        <div class="unit-label">Preço por unidade</div>
 
-        <label for="color">Cor</label>
-        <select id="color">
-          <option>Vermelho</option>
-          <option>Azul</option>
-          <option>Verde</option>
-          <option>Amarelo</option>
-          <option>Laranja</option>
-          <option>Roxo</option>
-          <option>Rosa</option>
-          <option>Preto</option>
-          <option>Branco</option>
-          <option>Cinza</option>
-          <option>Prata</option>
-          <option>Dourado</option>
-          <option>Bronze</option>
-          <option>Marrom</option>
-          <option>Bege</option>
-          <option>Turquesa</option>
-          <option>Ciano</option>
-          <option>Azul-claro</option>
-          <option>Azul-escuro</option>
-          <option>Verde-claro</option>
-          <option>Verde-escuro</option>
-          <option>Verde-limão</option>
-          <option>Lilás</option>
-          <option>Magenta</option>
-          <option>Vinho</option>
-          <option>Coral</option>
-          <option>Creme</option>
-          <option>Transparente</option>
-          <option>Furta-cor</option>
-          <option value="Tricolor">Tricolor (dourado + prata + bronze juntos) (+ R$ 2,00)</option>
-        </select>
+        <hr class="divider">
 
-        <p class="hint">A opção tricolor combina dourado, prata e bronze juntos, com adicional de R$ 2,00.</p>
+        <div class="field">
+          <label for="size">Escolha o tamanho</label>
+          <select id="size">
+            <option value="Pequeno">Pequeno — R$ 20,00</option>
+            <option value="Médio">Médio — R$ 25,00</option>
+            <option value="Grande">Grande — R$ 30,00</option>
+          </select>
+        </div>
 
-        <label for="qty">Quantidade</label>
-        <input id="qty" type="number" min="1" max="99" value="1">
+        <div class="field">
+          <label for="color">Escolha a cor</label>
+          <select id="color">
+            <option>Vermelho</option>
+            <option>Azul</option>
+            <option>Verde</option>
+            <option>Amarelo</option>
+            <option>Laranja</option>
+            <option>Roxo</option>
+            <option>Rosa</option>
+            <option>Preto</option>
+            <option>Branco</option>
+            <option>Cinza</option>
+            <option>Prata</option>
+            <option>Dourado</option>
+            <option>Bronze</option>
+            <option>Marrom</option>
+            <option>Bege</option>
+            <option>Turquesa</option>
+            <option>Ciano</option>
+            <option>Azul-claro</option>
+            <option>Azul-escuro</option>
+            <option>Verde-claro</option>
+            <option>Verde-escuro</option>
+            <option>Verde-limão</option>
+            <option>Lilás</option>
+            <option>Magenta</option>
+            <option>Vinho</option>
+            <option>Coral</option>
+            <option>Creme</option>
+            <option>Transparente</option>
+            <option>Furta-cor</option>
+            <option value="Tricolor">Tricolor — dourado + prata + bronze (+ R$ 2,00)</option>
+          </select>
+          <div class="hint">
+            Tricolor significa as três cores juntas na mesma peça,
+            com adicional de R$ 2,00.
+          </div>
+        </div>
 
-        <button class="btn full" id="add" style="margin-top:17px">
-          Adicionar ao carrinho +
+        <div class="field">
+          <label for="qty">Quantidade</label>
+          <input type="number" id="qty" min="1" max="99" value="1">
+        </div>
+
+        <button class="primary" id="addButton">
+          Adicionar ao carrinho
         </button>
+
+        <button class="secondary" onclick="showCart()">
+          Ver meu carrinho
+        </button>
+
+        <hr class="divider">
+
+        <div class="description">
+          <p>✓ Produto personalizado conforme sua escolha.</p>
+          <p>✓ Frete e prazo confirmados pelo WhatsApp.</p>
+          <p>✓ Pagamento combinado com o vendedor.</p>
+        </div>
       </div>
-    </article>
-
-    <div class="banner" id="sobre">
-      <h2>Pequenos detalhes.<br>Grandes ideias.</h2>
-      <p>Escolha sua combinação favorita e peça diretamente pelo WhatsApp.</p>
-      <p>Personalização sujeita à disponibilidade de cores e materiais.</p>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="cart-section" id="carrinho">
-  <h2>Seu carrinho</h2>
-  <p class="subtitle">Confira seu pedido antes de enviar.</p>
+  <!-- CARRINHO -->
+  <section class="view" id="cartView">
+    <button class="back" onclick="showHome()">← Continuar comprando</button>
 
-  <div class="cartbox">
-    <div id="items">
-      <div class="empty">Seu carrinho está vazio.</div>
+    <div class="cart-panel">
+      <h1>Meu carrinho</h1>
+      <p>Confira os produtos e as personalizações do seu pedido.</p>
+
+      <div id="cartItems"></div>
+
+      <div class="total-row">
+        <span>Total dos produtos</span>
+        <span id="cartTotal">R$ 0,00</span>
+      </div>
+
+      <button class="primary" id="checkoutButton">
+        Finalizar pedido pelo WhatsApp
+      </button>
+
+      <p class="description">
+        O frete, o prazo e a disponibilidade serão confirmados pelo WhatsApp.
+        Este site ainda não realiza pagamento online.
+      </p>
     </div>
+  </section>
 
-    <hr style="border:0;border-top:1px solid var(--line)">
-
-    <p>Subtotal dos produtos</p>
-    <div class="total" id="total">R$ 0,00</div>
-
-    <button class="btn full" id="checkout">
-      Finalizar pelo WhatsApp ↗
-    </button>
-
-    <p class="notice">Frete, prazo e disponibilidade serão confirmados pelo WhatsApp. O pedido não é pago automaticamente neste site.</p>
-  </div>
-</section>
 </main>
 
 <footer>
-  <div class="footer-inner">
-    <div>
-      <a class="logo" href="#">pdrhaos <span>3D.</span></a>
-      <p>Ideias que ganham forma.</p>
-    </div>
-    <p>© <span id="year"></span> pdrhaos 3D</p>
-  </div>
+  <strong>pdrhaos 3D.</strong>
+  <p>Ideias que ganham forma.</p>
+  <p>© <span id="year"></span> pdrhaos 3D</p>
 </footer>
 
 <div class="toast" id="toast"></div>
@@ -544,51 +743,75 @@ const prices = {
 
 let cart = [];
 
+const $ = id => document.getElementById(id);
+
 const money = value => value.toLocaleString("pt-BR", {
   style: "currency",
   currency: "BRL"
 });
 
-const size = document.getElementById("size");
-const color = document.getElementById("color");
-const qty = document.getElementById("qty");
+function showView(viewId) {
+  document.querySelectorAll(".view").forEach(view => {
+    view.classList.remove("active");
+  });
+
+  $(viewId).classList.add("active");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function showHome() {
+  showView("homeView");
+}
+
+function showProduct() {
+  showView("productView");
+  updatePrice();
+}
+
+function showCart() {
+  renderCart();
+  showView("cartView");
+}
 
 function unitPrice() {
-  return prices[size.value] + (color.value === "Tricolor" ? 2 : 0);
+  return prices[$("size").value] +
+    ($("color").value === "Tricolor" ? 2 : 0);
 }
 
 function updatePrice() {
-  document.getElementById("price").innerHTML =
-    money(unitPrice()) + ' <small>/ unidade</small>';
+  $("detailPrice").textContent = money(unitPrice());
 }
 
-size.addEventListener("change", updatePrice);
-color.addEventListener("change", updatePrice);
+$("size").addEventListener("change", updatePrice);
+$("color").addEventListener("change", updatePrice);
 
 function toast(message) {
-  const el = document.getElementById("toast");
+  const el = $("toast");
   el.textContent = message;
   el.style.display = "block";
+
   clearTimeout(toast.timer);
   toast.timer = setTimeout(() => {
     el.style.display = "none";
   }, 2600);
 }
 
-document.getElementById("add").addEventListener("click", () => {
-  const quantity = Number(qty.value);
+$("addButton").addEventListener("click", () => {
+  const quantity = Number($("qty").value);
 
   if (!Number.isInteger(quantity) || quantity < 1 || quantity > 99) {
     toast("Escolha uma quantidade entre 1 e 99.");
     return;
   }
 
+  const selectedColor = $("color").value;
+
   const item = {
     name: "Infinity Cube Fidget Toy",
-    size: size.value,
-    color: color.value === "Tricolor"
+    size: $("size").value,
+    color: selectedColor === "Tricolor"
       ? "Tricolor (dourado + prata + bronze juntos)"
-      : color.value,
+      : selectedColor,
     qty: quantity,
     price: unitPrice()
   };
@@ -602,41 +825,49 @@ document.getElementById("add").addEventListener("click", () => {
       toast("Limite de 99 unidades por opção.");
       return;
     }
+
     existing.qty += quantity;
   } else {
     cart.push(item);
   }
 
   renderCart();
-  toast("Infinity Cube adicionado ao carrinho!");
+  toast("Produto adicionado ao carrinho!");
 });
 
 function renderCart() {
-  const count = cart.reduce((sum, i) => sum + i.qty, 0);
-  const total = cart.reduce((sum, i) => sum + i.qty * i.price, 0);
+  const count = cart.reduce((sum, item) => sum + item.qty, 0);
+  const total = cart.reduce((sum, item) =>
+    sum + item.qty * item.price, 0
+  );
 
-  document.getElementById("count").textContent = count;
-  document.getElementById("total").textContent = money(total);
-
-  const el = document.getElementById("items");
+  $("count").textContent = count;
+  $("cartTotal").textContent = money(total);
 
   if (!cart.length) {
-    el.innerHTML = '<div class="empty">Seu carrinho está vazio.</div>';
+    $("cartItems").innerHTML =
+      '<div class="cart-empty">Seu carrinho está vazio.<br><br>' +
+      '<button class="secondary" onclick="showHome()">Explorar produtos</button></div>';
     return;
   }
 
-  el.innerHTML = cart.map((item, index) => `
+  $("cartItems").innerHTML = cart.map((item, index) => `
     <div class="cart-item">
       <div>
         <strong>${item.name}</strong>
-        <p>Tamanho: ${item.size} · Cor: ${item.color}</p>
-        <p>${item.qty} × ${money(item.price)} = ${money(item.qty * item.price)}</p>
+        <p>
+          Tamanho: ${item.size}<br>
+          Cor: ${item.color}<br>
+          Quantidade: ${item.qty}<br>
+          ${money(item.price)} por unidade
+        </p>
+        <strong>${money(item.qty * item.price)}</strong>
       </div>
       <button class="remove" data-index="${index}">Remover</button>
     </div>
   `).join("");
 
-  el.querySelectorAll(".remove").forEach(button => {
+  $("cartItems").querySelectorAll(".remove").forEach(button => {
     button.addEventListener("click", () => {
       cart.splice(Number(button.dataset.index), 1);
       renderCart();
@@ -644,23 +875,29 @@ function renderCart() {
   });
 }
 
-document.getElementById("checkout").addEventListener("click", () => {
+$("checkoutButton").addEventListener("click", () => {
   if (!cart.length) {
     toast("Adicione um produto antes de continuar.");
     return;
   }
 
   const lines = cart.map(item =>
-    `• ${item.name}\n  Tamanho: ${item.size}\n  Cor: ${item.color}\n  Quantidade: ${item.qty}\n  Subtotal: ${money(item.qty * item.price)}`
+    `• ${item.name}\n` +
+    `  Tamanho: ${item.size}\n` +
+    `  Cor: ${item.color}\n` +
+    `  Quantidade: ${item.qty}\n` +
+    `  Subtotal: ${money(item.qty * item.price)}`
   );
 
-  const total = cart.reduce((sum, i) => sum + i.qty * i.price, 0);
+  const total = cart.reduce((sum, item) =>
+    sum + item.qty * item.price, 0
+  );
 
   const message =
     `Olá! Quero fazer um pedido na pdrhaos 3D:\n\n` +
     lines.join("\n\n") +
     `\n\nTotal dos produtos: ${money(total)}` +
-    `\nGostaria de confirmar disponibilidade, frete e prazo.`;
+    `\nGostaria de confirmar disponibilidade, frete, prazo e pagamento.`;
 
   const url = "https://wa.me/" + WHATSAPP_NUMBER +
     "?text=" + encodeURIComponent(message);
@@ -668,11 +905,32 @@ document.getElementById("checkout").addEventListener("click", () => {
   window.open(url, "_blank");
 });
 
-document.getElementById("year").textContent =
-  new Date().getFullYear();
+// Busca na vitrine
+$("searchForm").addEventListener("submit", event => {
+  event.preventDefault();
+  showHome();
+  filterProducts();
+});
+
+$("searchInput").addEventListener("input", filterProducts);
+
+function filterProducts() {
+  const query = $("searchInput").value.trim().toLowerCase();
+  const card = document.querySelector(".product-card");
+
+  const matches = "infinity cube fidget toy brinquedo articulado"
+    .includes(query) || query === "";
+
+  card.style.display = matches ? "" : "none";
+  $("emptyResults").style.display = matches ? "none" : "block";
+  $("resultCount").textContent = matches ? "1 produto" : "0 produtos";
+}
+
+$("year").textContent = new Date().getFullYear();
 
 updatePrice();
 renderCart();
 </script>
+
 </body>
 </html>
