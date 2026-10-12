@@ -8,13 +8,15 @@
 
 <style>
 :root {
-    --roxo: #7027d9;
-    --roxo-escuro: #421080;
-    --roxo-claro: #eadcff;
-    --fundo: #f5efff;
-    --branco: #ffffff;
-    --texto: #28143d;
-    --borda: #e2d3f5;
+    --roxo: #a855f7;
+    --roxo-escuro: #3b0764;
+    --roxo-claro: #4c2b68;
+    --fundo: #321047;
+    --cinza: #292630;
+    --cinza-claro: #37323e;
+    --texto: #f5f3f7;
+    --texto-suave: #c5b5d1;
+    --borda: #60466f;
 }
 
 * {
@@ -38,13 +40,13 @@ button {
 }
 
 header {
-    background: linear-gradient(120deg, #421080, #7027d9, #913dff);
+    background: linear-gradient(120deg, #26083d, #5b168b, #8b35e8);
     color: white;
     padding: 18px 6%;
     position: sticky;
     top: 0;
     z-index: 10;
-    box-shadow: 0 4px 18px #38105c35;
+    box-shadow: 0 4px 18px #16062280;
 }
 
 .topo {
@@ -63,7 +65,7 @@ header {
 }
 
 .logo span {
-    color: #e5c7ff;
+    color: #dfbaff;
 }
 
 .busca {
@@ -73,21 +75,29 @@ header {
 .busca input {
     width: 100%;
     padding: 13px 17px;
-    border: none;
+    border: 1px solid #72558a;
     border-radius: 12px;
     outline: none;
-    background: white;
-    color: var(--texto);
+    background: var(--cinza-claro);
+    color: white;
+}
+
+.busca input::placeholder {
+    color: #c5b5d1;
 }
 
 .carrinho-topo {
-    border: 1px solid #ffffff70;
+    border: 1px solid #ffffff55;
     border-radius: 12px;
     padding: 12px 15px;
-    background: #ffffff1a;
+    background: #ffffff15;
     color: white;
     font-weight: bold;
     white-space: nowrap;
+}
+
+.carrinho-topo:hover {
+    background: #ffffff28;
 }
 
 main {
@@ -98,17 +108,18 @@ main {
 }
 
 .banner {
-    background: linear-gradient(115deg, #4a128a, #7627d9 60%, #a45aff);
+    background: linear-gradient(115deg, #26083d, #7027d9 60%, #a855f7);
     color: white;
+    border: 1px solid #a66be055;
     border-radius: 22px;
     padding: 38px;
     margin-bottom: 35px;
-    box-shadow: 0 10px 30px #7027d922;
+    box-shadow: 0 10px 30px #16062255;
 }
 
 .banner .etiqueta {
     display: inline-block;
-    background: #ffffff24;
+    background: #ffffff18;
     border: 1px solid #ffffff50;
     padding: 7px 12px;
     border-radius: 20px;
@@ -141,7 +152,7 @@ main {
 }
 
 .secao-titulo span {
-    color: #765795;
+    color: var(--texto-suave);
     font-size: 14px;
 }
 
@@ -152,7 +163,7 @@ main {
 }
 
 .produto-card {
-    background: white;
+    background: var(--cinza);
     border: 1px solid var(--borda);
     border-radius: 17px;
     overflow: hidden;
@@ -162,35 +173,37 @@ main {
 
 .produto-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 28px #7027d920;
+    box-shadow: 0 12px 28px #16062266;
+    border-color: var(--roxo);
 }
 
 .produto-card img {
     width: 100%;
     height: 225px;
     object-fit: contain;
-    background: #fff;
+    background: #211e27;
     padding: 15px;
 }
 
 .produto-info {
     padding: 17px;
-    border-top: 1px solid #f0e6fc;
+    border-top: 1px solid #45354f;
 }
 
 .produto-info h3 {
     font-size: 16px;
     margin-bottom: 10px;
+    color: #ffffff;
 }
 
 .preco {
-    font-size: 25px;
+    font-size: 23px;
     font-weight: 900;
-    color: var(--roxo);
+    color: #c084fc;
 }
 
 .parcela {
-    color: #806a96;
+    color: var(--texto-suave);
     font-size: 12px;
     margin-top: 5px;
 }
@@ -211,16 +224,18 @@ main {
 }
 
 .botao:hover {
-    background: var(--roxo-escuro);
+    background: #9333ea;
+    transform: translateY(-1px);
 }
 
 .botao-secundario {
-    background: var(--roxo-claro);
-    color: var(--roxo-escuro);
+    background: #4a3b55;
+    color: #f5eaff;
+    border: 1px solid #72558a;
 }
 
 .botao-secundario:hover {
-    background: #dcc3ff;
+    background: #624873;
 }
 
 .produto-info .botao {
@@ -238,25 +253,29 @@ main {
 .voltar {
     border: none;
     background: transparent;
-    color: var(--roxo);
+    color: #c084fc;
     font-weight: bold;
     margin-bottom: 22px;
     padding: 8px 0;
+}
+
+.voltar:hover {
+    color: white;
 }
 
 .detalhes {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 35px;
-    background: white;
+    background: var(--cinza);
     border: 1px solid var(--borda);
     border-radius: 22px;
     padding: 28px;
 }
 
 .imagem-grande {
-    background: #faf7ff;
-    border: 1px solid #eee2fc;
+    background: #211e27;
+    border: 1px solid var(--borda);
     border-radius: 17px;
     min-height: 380px;
     display: flex;
@@ -274,12 +293,13 @@ main {
 .detalhe-info h1 {
     font-size: 31px;
     margin: 8px 0 12px;
+    color: white;
 }
 
 .tag {
     display: inline-block;
-    color: var(--roxo);
-    background: var(--roxo-claro);
+    color: #e9d5ff;
+    background: #4c2b68;
     padding: 7px 11px;
     border-radius: 20px;
     font-size: 12px;
@@ -287,7 +307,7 @@ main {
 }
 
 .descricao {
-    color: #715d85;
+    color: var(--texto-suave);
     line-height: 1.7;
     margin: 12px 0 22px;
 }
@@ -295,7 +315,7 @@ main {
 .preco-grande {
     font-size: 34px;
     font-weight: 900;
-    color: var(--roxo);
+    color: #c084fc;
     margin-bottom: 22px;
 }
 
@@ -308,22 +328,35 @@ main {
     font-size: 14px;
     font-weight: bold;
     margin-bottom: 9px;
+    color: #f5f3f7;
 }
 
 .campo select,
 .campo input {
     width: 100%;
     padding: 13px;
-    border: 1px solid #d9c6ef;
+    border: 1px solid #72558a;
     border-radius: 10px;
-    background: white;
-    color: var(--texto);
+    background: var(--cinza-claro);
+    color: white;
     outline-color: var(--roxo);
 }
 
+.campo select option {
+    background: var(--cinza-claro);
+    color: white;
+}
+
+.campo input:focus,
+.campo select:focus,
+.busca input:focus {
+    border-color: var(--roxo);
+}
+
 .aviso {
-    background: #f3eaff;
-    color: #56218b;
+    background: #402750;
+    color: #ead7ff;
+    border: 1px solid #60466f;
     padding: 12px;
     border-radius: 10px;
     font-size: 13px;
@@ -338,7 +371,7 @@ main {
 }
 
 .carrinho-box {
-    background: white;
+    background: var(--cinza);
     border: 1px solid var(--borda);
     padding: 25px;
     border-radius: 18px;
@@ -346,7 +379,7 @@ main {
 
 .item-carrinho {
     padding: 18px 0;
-    border-bottom: 1px solid #eadcf8;
+    border-bottom: 1px solid #51405d;
     display: flex;
     justify-content: space-between;
     gap: 15px;
@@ -354,16 +387,25 @@ main {
 }
 
 .item-carrinho p {
-    line-height: 1.6;
+    line-height: 1.7;
+    color: #e5d9ed;
+}
+
+.item-carrinho strong {
+    color: white;
 }
 
 .remover {
-    background: #f8e7ff;
-    color: #8b239a;
-    border: none;
+    background: #4a3b55;
+    color: #f5eaff;
+    border: 1px solid #72558a;
     padding: 9px 12px;
     border-radius: 9px;
     font-weight: bold;
+}
+
+.remover:hover {
+    background: #624873;
 }
 
 .total {
@@ -375,17 +417,22 @@ main {
     font-weight: 900;
 }
 
+.total span:last-child {
+    color: #c084fc;
+}
+
 .vazio {
     text-align: center;
     padding: 45px 15px;
-    color: #79658c;
+    color: var(--texto-suave);
 }
 
 footer {
     margin-top: 65px;
     padding: 28px 20px;
-    background: #32105b;
-    color: #e6d5ff;
+    background: #21132b;
+    border-top: 1px solid #60466f;
+    color: #c5b5d1;
     text-align: center;
     line-height: 1.8;
     font-size: 13px;
@@ -393,6 +440,7 @@ footer {
 
 footer strong {
     color: white;
+    font-size: 16px;
 }
 
 @media (max-width: 760px) {
@@ -448,7 +496,7 @@ footer strong {
     }
 
     .preco {
-        font-size: 21px;
+        font-size: 18px;
     }
 
     .produto-info .botao {
@@ -472,6 +520,10 @@ footer strong {
 
     .acoes {
         grid-template-columns: 1fr;
+    }
+
+    .carrinho-box {
+        padding: 15px;
     }
 }
 </style>
@@ -502,181 +554,172 @@ footer strong {
 
 <main>
 
-    <!-- INÍCIO / CATÁLOGO -->
-    <section id="inicio" class="pagina ativa">
-
-        <div class="banner">
-            <span class="etiqueta">IMPRESSÃO 3D • CRIATIVIDADE</span>
-            <h1>Ideias incríveis ganham forma.</h1>
-            <p>
-                Descubra produtos criativos feitos em impressão 3D.
-                Escolha seu modelo, personalize e faça seu pedido!
-            </p>
-        </div>
-
-        <div class="secao-titulo">
-            <h2>Nossos produtos</h2>
-            <span>Feitos em impressão 3D</span>
-        </div>
-
-        <div class="catalogo" id="catalogo">
-            <article class="produto-card" onclick="abrirProduto()">
-                <img
-                    src="images/imagem_2026-10-12_143104023.png"
-                    alt="Infinity Cube Fidget Toy"
-                >
-
-                <div class="produto-info">
-                    <h3>Infinity Cube Fidget Toy</h3>
-                    <div class="preco">A partir de R$ 20,00</div>
-                    <p class="parcela">Escolha o tamanho e a cor</p>
-
-                    <button
-                        class="botao"
-                        onclick="event.stopPropagation(); abrirProduto()"
-                    >
-                        Ver produto
-                    </button>
-                </div>
-            </article>
-        </div>
-
-        <p id="semResultado" class="vazio" style="display:none">
-            Nenhum produto encontrado.
+<section id="inicio" class="pagina ativa">
+    <div class="banner">
+        <span class="etiqueta">IMPRESSÃO 3D • CRIATIVIDADE</span>
+        <h1>Ideias incríveis ganham forma.</h1>
+        <p>
+            Descubra produtos criativos feitos em impressão 3D.
+            Escolha seu modelo, personalize e faça seu pedido!
         </p>
-    </section>
+    </div>
 
-    <!-- DETALHES DO PRODUTO -->
-    <section id="produto" class="pagina">
-        <button class="voltar" onclick="mostrarPagina('inicio')">
-            ← Voltar para a loja
-        </button>
+    <div class="secao-titulo">
+        <h2>Nossos produtos</h2>
+        <span>Feitos em impressão 3D</span>
+    </div>
 
-        <div class="detalhes">
-            <div class="imagem-grande">
-                <img
-                    src="images/imagem_2026-10-12_143104023.png"
-                    alt="Infinity Cube Fidget Toy"
+    <div class="catalogo">
+        <article class="produto-card" onclick="abrirProduto()">
+            <img
+                src="images/imagem_2026-10-12_143104023.png"
+                alt="Infinity Cube Fidget Toy"
+            >
+
+            <div class="produto-info">
+                <h3>Infinity Cube Fidget Toy</h3>
+                <div class="preco">A partir de R$ 20,00</div>
+                <p class="parcela">Escolha o tamanho e a cor</p>
+
+                <button
+                    class="botao"
+                    onclick="event.stopPropagation(); abrirProduto()"
+                >
+                    Ver produto
+                </button>
+            </div>
+        </article>
+    </div>
+
+    <p id="semResultado" class="vazio" style="display:none">
+        Nenhum produto encontrado.
+    </p>
+</section>
+
+<section id="produto" class="pagina">
+    <button class="voltar" onclick="mostrarPagina('inicio')">
+        ← Voltar para a loja
+    </button>
+
+    <div class="detalhes">
+        <div class="imagem-grande">
+            <img
+                src="images/imagem_2026-10-12_143104023.png"
+                alt="Infinity Cube Fidget Toy"
+            >
+        </div>
+
+        <div class="detalhe-info">
+            <span class="tag">IMPRESSÃO 3D</span>
+            <h1>Infinity Cube Fidget Toy</h1>
+
+            <p class="descricao">
+                Um cubo articulado e divertido, ideal para brincar,
+                movimentar nas mãos e aliviar o tédio. Personalize
+                seu Infinity Cube escolhendo o tamanho e a cor.
+            </p>
+
+            <div class="preco-grande" id="precoProduto">R$ 20,00</div>
+
+            <div class="campo">
+                <label for="tamanho">Escolha o tamanho</label>
+                <select id="tamanho" onchange="atualizarPreco()">
+                    <option value="Pequeno">Pequeno — R$ 20,00</option>
+                    <option value="Médio">Médio — R$ 25,00</option>
+                    <option value="Grande">Grande — R$ 30,00</option>
+                </select>
+            </div>
+
+            <div class="campo">
+                <label for="cor">Escolha a cor</label>
+                <select id="cor" onchange="atualizarPreco()">
+                    <option>Preto</option>
+                    <option>Branco</option>
+                    <option>Vermelho</option>
+                    <option>Azul</option>
+                    <option>Verde</option>
+                    <option>Amarelo</option>
+                    <option>Laranja</option>
+                    <option>Roxo</option>
+                    <option>Rosa</option>
+                    <option>Azul claro</option>
+                    <option>Azul escuro</option>
+                    <option>Verde claro</option>
+                    <option>Verde escuro</option>
+                    <option>Vermelho escuro</option>
+                    <option>Rosa claro</option>
+                    <option>Cinza</option>
+                    <option>Marrom</option>
+                    <option>Bege</option>
+                    <option>Violeta</option>
+                    <option>Turquesa</option>
+                    <option>Magenta</option>
+                    <option>Creme</option>
+                    <option>Verde-limão</option>
+                    <option>Azul-petróleo</option>
+                    <option>Coral</option>
+                    <option>Bordô</option>
+                    <option>Oliva</option>
+                    <option>Prata</option>
+                    <option>Dourado</option>
+                    <option>Bronze</option>
+                    <option value="Tricolor">
+                        Tricolor — dourado + prata + bronze (+ R$ 2,00)
+                    </option>
+                </select>
+
+                <div class="aviso">
+                    💜 A opção tricolor combina dourado, prata e bronze
+                    no mesmo produto, com adicional de R$ 2,00.
+                </div>
+            </div>
+
+            <div class="campo">
+                <label for="quantidade">Quantidade</label>
+                <input
+                    id="quantidade"
+                    type="number"
+                    min="1"
+                    max="99"
+                    value="1"
                 >
             </div>
 
-            <div class="detalhe-info">
-                <span class="tag">IMPRESSÃO 3D</span>
-                <h1>Infinity Cube Fidget Toy</h1>
+            <div class="acoes">
+                <button class="botao" onclick="adicionarCarrinho()">
+                    🛒 Adicionar ao carrinho
+                </button>
 
-                <p class="descricao">
-                    Um cubo articulado e divertido, ideal para brincar,
-                    movimentar nas mãos e aliviar o tédio. Personalize
-                    seu Infinity Cube escolhendo o tamanho e a cor.
-                </p>
-
-                <div class="preco-grande" id="precoProduto">
-                    R$ 20,00
-                </div>
-
-                <div class="campo">
-                    <label for="tamanho">Escolha o tamanho</label>
-                    <select id="tamanho" onchange="atualizarPreco()">
-                        <option value="Pequeno">Pequeno — R$ 20,00</option>
-                        <option value="Médio">Médio — R$ 25,00</option>
-                        <option value="Grande">Grande — R$ 30,00</option>
-                    </select>
-                </div>
-
-                <div class="campo">
-                    <label for="cor">Escolha a cor</label>
-                    <select id="cor" onchange="atualizarPreco()">
-                        <option>Preto</option>
-                        <option>Branco</option>
-                        <option>Vermelho</option>
-                        <option>Azul</option>
-                        <option>Verde</option>
-                        <option>Amarelo</option>
-                        <option>Laranja</option>
-                        <option>Roxo</option>
-                        <option>Rosa</option>
-                        <option>Azul claro</option>
-                        <option>Azul escuro</option>
-                        <option>Verde claro</option>
-                        <option>Verde escuro</option>
-                        <option>Vermelho escuro</option>
-                        <option>Rosa claro</option>
-                        <option>Cinza</option>
-                        <option>Marrom</option>
-                        <option>Bege</option>
-                        <option>Violeta</option>
-                        <option>Turquesa</option>
-                        <option>Magenta</option>
-                        <option>Creme</option>
-                        <option>Verde-limão</option>
-                        <option>Azul-petróleo</option>
-                        <option>Coral</option>
-                        <option>Bordô</option>
-                        <option>Oliva</option>
-                        <option>Prata</option>
-                        <option>Dourado</option>
-                        <option>Bronze</option>
-                        <option value="Tricolor">
-                            Tricolor — dourado + prata + bronze (+ R$ 2,00)
-                        </option>
-                    </select>
-
-                    <div class="aviso">
-                        💜 A opção tricolor é uma combinação dos três tons:
-                        dourado, prata e bronze. O adicional é de R$ 2,00.
-                    </div>
-                </div>
-
-                <div class="campo">
-                    <label for="quantidade">Quantidade</label>
-                    <input
-                        id="quantidade"
-                        type="number"
-                        min="1"
-                        max="99"
-                        value="1"
-                    >
-                </div>
-
-                <div class="acoes">
-                    <button class="botao" onclick="adicionarCarrinho()">
-                        🛒 Adicionar ao carrinho
-                    </button>
-
-                    <button
-                        class="botao botao-secundario"
-                        onclick="pedirAgora()"
-                    >
-                        Pedir pelo WhatsApp
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CARRINHO -->
-    <section id="carrinho" class="pagina">
-        <button class="voltar" onclick="mostrarPagina('inicio')">
-            ← Continuar comprando
-        </button>
-
-        <h1 style="margin-bottom:22px">Meu carrinho 🛒</h1>
-
-        <div class="carrinho-box">
-            <div id="itensCarrinho"></div>
-
-            <div id="resumoCarrinho" style="display:none">
-                <div class="total">
-                    <span>Total</span>
-                    <span id="totalCarrinho">R$ 0,00</span>
-                </div>
-
-                <button class="botao" onclick="finalizarPedido()">
-                    Finalizar pedido pelo WhatsApp
+                <button class="botao botao-secundario" onclick="pedirAgora()">
+                    Pedir pelo WhatsApp
                 </button>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+<section id="carrinho" class="pagina">
+    <button class="voltar" onclick="mostrarPagina('inicio')">
+        ← Continuar comprando
+    </button>
+
+    <h1 style="margin-bottom:22px">Meu carrinho 🛒</h1>
+
+    <div class="carrinho-box">
+        <div id="itensCarrinho"></div>
+
+        <div id="resumoCarrinho" style="display:none">
+            <div class="total">
+                <span>Total</span>
+                <span id="totalCarrinho">R$ 0,00</span>
+            </div>
+
+            <button class="botao" onclick="finalizarPedido()">
+                Finalizar pedido pelo WhatsApp
+            </button>
+        </div>
+    </div>
+</section>
 
 </main>
 
@@ -841,7 +884,8 @@ function removerItem(indice) {
 }
 
 function montarMensagem(itens) {
-    let mensagem = "Olá! Vim pela loja pdrhaos 3D e gostaria de fazer um pedido:\n\n";
+    let mensagem =
+        "Olá! Vim pela loja pdrhaos 3D e gostaria de fazer um pedido:\n\n";
 
     itens.forEach((item, indice) => {
         mensagem += `${indice + 1}. ${item.nome}\n`;
